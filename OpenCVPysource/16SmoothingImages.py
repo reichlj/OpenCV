@@ -7,6 +7,7 @@ img = cv2.imread('images/carpet.jpg')
 averaging = cv2.blur(img,(5,5))
 gaussian = cv2.GaussianBlur(img,(5,5),0)
 median = cv2.medianBlur(img,5,0)
+# reduce unwanted noise very well while keeping edges fairly sharp
 bilateral = cv2.bilateralFilter(img,5,250,250)
 
 cv2.imshow('Original image',img)
