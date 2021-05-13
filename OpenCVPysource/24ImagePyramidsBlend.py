@@ -2,9 +2,9 @@ import cv2
 import numpy as np
 
 img1 = cv2.imread('images/baseball_ball.png')
-img1 = cv2.resize(img1,(1000,1000))
+img1 = cv2.resize(img1,(1000,1200))
 img2 = cv2.imread('images/football_ball.jpg')
-img2 = cv2.resize(img2,(1000,1000))
+img2 = cv2.resize(img2,(1000,1200))
 
 # Gaussian Pyramid 1
 layer = img1.copy()
@@ -43,7 +43,7 @@ footbase_ball_pyramid = []
 n = 0
 for img1_lap, img2_lap in zip(laplacian_pyramid,laplacian_pyramid2):
     n += 1
-    cols,rows,ch= img1_lap.shape
+    rows,cols,ch= img1_lap.shape
     laplacian = np.hstack((img1_lap[:,:int(cols/2)],img2_lap[:,int(cols/2):]))
     cv2.imshow(str(n),laplacian)
     footbase_ball_pyramid.append(laplacian)
