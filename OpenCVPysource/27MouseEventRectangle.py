@@ -11,6 +11,7 @@ def mouse_drawing(event,x,y,flags, params):
         if drawing is False:
             drawing = True
             point1 = (x,y)
+            point2 = None
         else:
             drawing = False
     elif event == cv2.EVENT_MOUSEMOVE:

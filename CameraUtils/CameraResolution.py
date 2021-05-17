@@ -6,7 +6,7 @@ import cv2
 #  1024x576 , 1280x720 , 1600x896 , 1920x1080
 
 # get the default capture resolution
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 print('Default Capture Resolution: (Width={0:d},Height={1:d})'.format(width,height))
@@ -27,6 +27,7 @@ for index, row in table[["W", "H"]].iterrows():
 cap.release()
 
 print('Capture Resolutions (Width x Height) supported by the camera:')
+# sort by width
 for count, item in enumerate(sorted(resolutions.keys(), key=lambda x: x[0])):
     print(' {0:d}x{1:d} ,'.format(*item), end='')
     if (count+1)%7 == 0:

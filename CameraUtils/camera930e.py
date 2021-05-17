@@ -1,4 +1,6 @@
 import cv2
+import sys
+
 # Logitech 930e - Resolutions supported:
 #  160x120 , 176x144 , 320x180 , 320x240 , 352x288 , 424x240 , 480x270
 #  640x360 , 640x480 , 800x448 , 800x600 , 848x480 , 960x540
@@ -9,24 +11,28 @@ def setVideoCaptureSize(cap, resolution):
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, resolution['width']);
 
 def checkVideoCaptureSize(cap, resolution):
-    if resolution['height'] == -1 and resolution['width'] == -1:
-        return
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     if height != resolution['height'] or width != resolution['width']:
-       print('Resolution width={0:5d} height={1:5d} not supported!'.format(
+        print('Resolution width={0:5d} height={1:5d} not supported!'.format(
                    resolution['width'], resolution['height']))
-       print('  Height: found={0:5d} expected={1:5d}'.format(height, resolution['height']))
-       print('  Width : found={0:5d} expected={1:5d}'.format(width, resolution['width']))
+        print('  Height: found={0:5d} expected={1:5d}'.format(height, resolution['height']))
+        print('  Width : found={0:5d} expected={1:5d}'.format(width, resolution['width']))
+        return False
+    else:
+        return True
+
+print('Set and test a given resolution')
 
 #resolution = {'width': 1920, 'height': 1080}
 resolution = {'width': 801, 'height': 600}
-#resolution = {'width': -1, 'height': -1}
+#resolution = {'width': -1, 'height': -1}  # set default resolution
 
-# test a given resolution
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 setVideoCaptureSize(cap, resolution)
-checkVideoCaptureSize(cap, resolution)
+if not checkVideoCaptureSize(cap,resolution):
+    sys.exit(0)
+
 try:
     ret, image = cap.read()
     if ret:
