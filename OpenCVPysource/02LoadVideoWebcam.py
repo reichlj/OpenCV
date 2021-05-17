@@ -1,7 +1,7 @@
 import cv2
 
-cap = cv2.VideoCapture("images/red_panda_snow.mp4")
-#cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture("images/red_panda_snow.mp4")
+cap = cv2.VideoCapture(0)
 while True:
     ret, frame = cap.read()
 
