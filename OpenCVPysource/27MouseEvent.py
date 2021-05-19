@@ -16,7 +16,7 @@ def mouse_drawing(event,x,y,flags, params):
         print('Left Click Up:', x, y)
         circles.append((x,y))
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 
 cv2.namedWindow('Frame')
 cv2.setMouseCallback('Frame',mouse_drawing)

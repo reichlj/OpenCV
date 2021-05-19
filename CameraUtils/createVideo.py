@@ -41,7 +41,7 @@ def start_and_stop_listener(event,x,y,flags, params):
 
 resolution = {'width': 640, 'height': 480}
 path = 'videos'
-name = 'trackZuendis'
+name = 'flasche'
 video_path_name = os.path.join(path, name + '.avi')
 
 print('Click on Frame to start and stops capturing!')
