@@ -16,9 +16,9 @@ for m in matches:
     print(m.distance)
 
 matching_result = cv2.drawMatches(img1,kp1,img2,kp2,matches[:10],None,flags=2)
-cv2.imshow('img1',img1)
-cv2.imshow('img2',img2)
-cv2.imshow('img2',matching_result)
+cv2.imshow('road',img1)
+cv2.imshow('car',img2)
+cv2.imshow('car',matching_result)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

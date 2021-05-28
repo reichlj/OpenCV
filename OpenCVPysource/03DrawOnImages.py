@@ -4,13 +4,15 @@ import numpy as np
 image  = cv2.imread("images/red_panda.jpg")
 shape = image.shape
 print(shape)
+# OpenCV uses BGR
 blue = (255,0,0)
 red = (0,0,255)
 green = (0,255,0)
 violet = (180,0,180)
 yellow = (0,180,180)
 white = (255,255,255)
-#                x  y
+#                x  y  note x is column index, y is row index of image
+#                point (x=50,y=30) corresponds to image[30,50]
 cv2.line(image,(50,30), (450,35),blue,thickness=5)
 cv2.circle(image,(238,205),23,red,-1)
 cv2.rectangle(image,(50,60),(450,95),green,thickness=-1)
@@ -21,5 +23,6 @@ cv2.polylines(image,[points],True,yellow,thickness=3)
 font = cv2.FONT_HERSHEY_COMPLEX
 cv2.putText(image,'Panda',(20,180),font,3,white)
 cv2.imshow("red panda",image)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
