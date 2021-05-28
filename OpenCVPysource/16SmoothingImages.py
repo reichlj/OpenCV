@@ -1,4 +1,3 @@
-import numpy as np
 import cv2
 
 #img = cv2.imread('images/early_1800.jpg')

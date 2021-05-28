@@ -3,7 +3,7 @@ import cv2
 def nothing():
     pass
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 
 cv2.namedWindow('frame')
 cv2.createTrackbar('test','frame',50,500,nothing)

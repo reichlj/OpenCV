@@ -1,10 +1,9 @@
 import cv2
-import numpy as np
 
 def nothing(x):
     pass
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 cv2.namedWindow('Frame')

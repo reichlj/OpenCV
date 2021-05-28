@@ -4,7 +4,7 @@ import numpy as np
 blue_pen_template = cv2.imread('images/blue_pen.png', cv2.IMREAD_GRAYSCALE)
 h,w = blue_pen_template.shape
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 while True:
     _, frame = cap.read()
     gray_scale = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)

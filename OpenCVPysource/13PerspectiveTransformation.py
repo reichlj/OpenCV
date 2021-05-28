@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 # perspective Transformation : lines will be lines, 4 points required
 # described by 3*3 matrix
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 while True:
     _, frame = cap.read()
     print(frame.shape)

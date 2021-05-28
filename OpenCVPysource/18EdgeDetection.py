@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 
 img = cv2.imread("images/white_panda.jpg",cv2.IMREAD_GRAYSCALE)
 img = cv2.GaussianBlur(img,(11,11),0)

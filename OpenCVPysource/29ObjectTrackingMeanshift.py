@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 
 #video = cv2.VideoCapture('videos/flasche.avi')
 first_frame = cv2.imread('videos/flasche_first.jpg')

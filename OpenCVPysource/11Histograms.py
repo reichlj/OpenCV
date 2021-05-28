@@ -1,5 +1,5 @@
 import cv2
-import numpy as np
+
 import matplotlib.pyplot as plt
 if 1==1:
     img= cv2.imread('images/sea.jpg')

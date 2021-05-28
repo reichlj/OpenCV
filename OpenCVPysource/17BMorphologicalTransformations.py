@@ -4,7 +4,7 @@ import numpy as np
 def nothing():
     pass
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 cv2.namedWindow('Trackbars')
 # detect yellow marker
 cv2.createTrackbar('L - H','Trackbars',24,179,nothing)

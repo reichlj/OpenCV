@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 
 img = cv2.imread('images/book_page.jpg')
 _, threshold = cv2.threshold(img,155,255,cv2.THRESH_BINARY)
