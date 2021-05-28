@@ -12,6 +12,7 @@ height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 print('Default Capture Resolution: (Width={0:d},Height={1:d})'.format(width,height))
 
 # find all capture resolutions supported by the camera
+# url contains table of almost all resolutions known
 url = "https://en.wikipedia.org/wiki/List_of_common_resolutions"
 table = pd.read_html(url)[0]
 table.columns = table.columns.droplevel()
@@ -21,9 +22,11 @@ resolutions = {}
 for index, row in table[["W", "H"]].iterrows():
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, row["W"])
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, row["H"])
-    width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-    height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
-    resolutions[ (int(width),int(height)) ] = "OK"
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    resolutions[ width,height ] = "OK"
+    print('{0:3d} w_set={1:4d} h_set={2:4d} w_get={3:4d} h_get={4:4d}'.format(
+          index,row["W"],row["H"],width,height))
 cap.release()
 
 print('Capture Resolutions (Width x Height) supported by the camera:')
